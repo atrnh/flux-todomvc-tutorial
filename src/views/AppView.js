@@ -4,6 +4,7 @@ function AppView(props) {
   return (
     <div>
       <Header {...props} />
+      <NewTodo {...props} />
       <Main {...props} />
       <Footer {...props} />
     </div>
@@ -64,6 +65,28 @@ function Footer(props) {
         {phrase}
       </span>
     </footer>
+  );
+}
+
+function NewTodo(props) {
+  return (
+    <form onSubmit={
+      e => {
+        e.preventDefault();
+        props.onAddTodo(props.todoDraft.get('draft').content);
+      }
+    }>
+      <label>
+        new todo:
+        <input
+          className="new-todo"
+          type="text"
+          onChange={(e) => {props.onUpdateTodoDraft(e.target.value)}}
+          value={props.todoDraft.get('draft').content}
+        />
+      </label>
+      <input type="submit" value="add todo" />
+    </form>
   );
 }
 

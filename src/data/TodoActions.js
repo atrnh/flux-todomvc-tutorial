@@ -22,6 +22,13 @@ const Actions = {
       id,
     });
   },
+
+  updateDraft(text) {
+    TodoDispatcher.dispatch({
+      type: TodoActionTypes.UPDATE_DRAFT,
+      text,
+    });
+  },
 };
 
 export default Actions;
