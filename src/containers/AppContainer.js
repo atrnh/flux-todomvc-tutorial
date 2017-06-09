@@ -20,6 +20,7 @@ function getState() {
     onToggleTodo: TodoActions.toggleTodo,
     onUpdateTodoDraft: TodoActions.updateDraft,
     onAddTodo: TodoActions.addTodo,
+    onDeleteCompleted: TodoActions.deleteCompletedTodos,
   };
 }
 

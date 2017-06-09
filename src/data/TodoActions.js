@@ -29,6 +29,12 @@ const Actions = {
       text,
     });
   },
+
+  deleteCompletedTodos() {
+    TodoDispatcher.dispatch({
+      type: TodoActionTypes.DELETE_COMPLETED,
+    });
+  },
 };
 
 export default Actions;

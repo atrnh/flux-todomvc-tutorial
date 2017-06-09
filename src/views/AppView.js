@@ -64,6 +64,9 @@ function Footer(props) {
         </strong>
         {phrase}
       </span>
+      <button onClick={() => {props.onDeleteCompleted()}}>
+        clear completed
+      </button>
     </footer>
   );
 }
