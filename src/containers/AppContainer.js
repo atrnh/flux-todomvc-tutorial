@@ -21,6 +21,7 @@ function getState() {
     onUpdateTodoDraft: TodoActions.updateDraft,
     onAddTodo: TodoActions.addTodo,
     onDeleteCompleted: TodoActions.deleteCompletedTodos,
+    onToggleAllTodos: TodoActions.toggleAllTodos,
   };
 }
 
