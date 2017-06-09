@@ -22,6 +22,9 @@ function getState() {
     onAddTodo: TodoActions.addTodo,
     onDeleteCompleted: TodoActions.deleteCompletedTodos,
     onToggleAllTodos: TodoActions.toggleAllTodos,
+    onStartEditingTodo: TodoActions.startEditingTodo,
+    onStopEditingTodo: TodoActions.stopEditingTodo,
+    onUpdateTodo: TodoActions.updateTodo,
   };
 }
 

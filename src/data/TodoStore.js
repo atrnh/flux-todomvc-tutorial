@@ -43,6 +43,24 @@ class TodoStore extends ReduceStore {
       case TodoActionTypes.TOGGLE_ALL:
         return state.map(todo => todo.set('complete', !todo.complete));
 
+        case TodoActionTypes.START_EDITING_TODO:
+          return state.update(
+            action.id,
+            todo => todo.set('editStart', true),
+          );
+
+        case TodoActionTypes.STOP_EDITING_TODO:
+          return state.update(
+            action.id,
+            todo => todo.set('editStart', false),
+          );
+
+        case TodoActionTypes.UPDATE_TODO:
+          return state.update(
+            action.id,
+            todo => todo.set('text', action.text),
+          );
+
       default:
         return state;
     }

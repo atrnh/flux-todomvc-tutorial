@@ -19,6 +19,37 @@ function Header(props) {
   );
 }
 
+function Todo(props) {
+  if (props.todos.size === 0) {
+    return null;
+  }
+
+  const editField = (
+    <form onSubmit={
+      e => {
+        e.preventDefault();
+        props.onStopEditingTodo(props.todo.id);
+      }
+    }>
+      <label>
+        <input
+          className="edit-todo"
+          type="text"
+          onChange={(e) => props.onUpdateTodo(props.todo.id, e.target.value)}
+          value={props.todo.text}
+        />
+      </label>
+      <input type="submit" value="update" />
+    </form>
+  );
+
+  return (
+    <label onDoubleClick={() => props.onStartEditingTodo(props.todo.id)}>
+      {props.todo.editStart ? editField : props.todo.text}
+    </label>
+  );
+}
+
 function Main(props) {
   if (props.todos.size === 0) {
     return null;
@@ -35,7 +66,7 @@ function Main(props) {
                 checked={todo.complete}
                 onChange={() => props.onToggleTodo(todo.id)}
               />
-              <label>{todo.text}</label>
+              <Todo {...props} todo={todo} />
               <button
                 className="destroy"
                 onClick={() => props.onDeleteTodo(todo.id)}
