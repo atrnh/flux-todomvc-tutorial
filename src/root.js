@@ -11,5 +11,6 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import AppContainer from './containers/AppContainer';
 
-ReactDOM.render(<div>Hello World!</div>, document.getElementById('todoapp'));
+ReactDOM.render(<AppContainer />, document.getElementById('todoapp'));
